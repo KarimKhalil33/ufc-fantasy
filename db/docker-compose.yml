@@ -1,0 +1,17 @@
+services:
+  postgres:
+    image: postgres:14
+    container_name: ufc-db
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_DB: ufc_fantasy_db
+    ports:
+      - "5432:5432"
+    volumes:
+      - ./init:/docker-entrypoint-initdb.d
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U postgres -d ufc_fantasy_db"]
+      interval: 5s
+      timeout: 5s
+      retries: 10
