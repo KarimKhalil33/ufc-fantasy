@@ -1,0 +1,17 @@
+# Python
+__pycache__/
+*.pyc
+.venv/
+.env
+
+# Java / Maven
+target/
+*.iml
+.idea/
+.settings/
+
+# Node
+node_modules/
+
+# OS
+.DS_Store
